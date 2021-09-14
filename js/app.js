@@ -41,9 +41,17 @@ function carritoHTML(){
     limpiarHTML();
     //Recorre el carrito y genera el html
     articulosCarrito.forEach(curso=>{
+        //destructuring curso
+        const {imagen,titulo,precio,cantidad,id}=curso;
         const row=document.createElement('tr');
         row.innerHTML=`
-            <td>${curso.titulo}</td>
+            <td><img src='${imagen}' width='100'></td>
+            <td>${titulo}</td>
+            <td>${precio}</td>
+            <td>${cantidad}</td>
+            <td>
+                <a href='#' class='borrar-curso' data-id='${id}'> X </<>
+            </td>
         `;
         contenedorCarrito.appendChild(row);
     });
